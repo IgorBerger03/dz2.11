@@ -6,6 +6,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 
 @Component
 @SessionScope
@@ -19,6 +20,6 @@ public class Basket {
         this.items.addAll(items);
     }
     public Collection<Item> get(){
-        return new ArrayList<>(items);
+        return Collections.unmodifiableCollection(items);
     }
 }
